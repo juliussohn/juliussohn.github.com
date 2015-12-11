@@ -23,7 +23,7 @@ app.config(function ($routeProvider, $locationProvider) {
         })
         .when('/work/:workSlug', {
             templateUrl: 'templates/showcase.html',
-            activeTab: 'showcase',
+            activeTab: 'work',
             controller: 'WorkController',
         })
        
@@ -34,10 +34,16 @@ app.config(function ($routeProvider, $locationProvider) {
 });
 
 app.run(function ($rootScope, $location, $http) {
+    $rootScope.$on("$routeChangeStart", function (event, next, current) {
+        $rootScope.$route = next;
+       
+    });
    
 });
 
-app.controller('MainController', function ($scope, $rootScope) {
+app.controller('MainController', function ($scope, $rootScope, $route) {
+    $scope.$route = $route.current;
+    console.log($scope.$route);
 
 });
 app.controller('ShowcaseController', function ($scope, $routeParams) {

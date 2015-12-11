@@ -96,6 +96,8 @@ nav {
       nav ul li a {
         font-size: 24px;
         display: block; }
+        nav ul li a.active {
+          animation: hover-animation 2s infinite; }
         nav ul li a:hover {
           animation: hover-animation 2s infinite; }
 
